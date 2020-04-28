@@ -1,0 +1,63 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    Payees List
+  </h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Open Date</th>
+                            <th>Status</th>                            
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <td>12345</td>
+                            <td>CreditCard</td>
+                            <td>Personal CCrd</td>
+                            <td>MM/DD/YYYY</td>
+                            <td>Active</td>
+                            <td>
+                                <button type="button" [routerLink]="['/accounts/update/', 1234]">Update</button>
+                                <button type="button" (click)="accountsService.delete(1234)">Remove</button>
+                            </td>
+                    </tbody>
+                </table>
+</div>
+
+<router-outlet></router-outlet>
+
+<!--
+            <div>
+                <h1>My Accounts</h1>
+                <button type="button" [routerLink]="/accounts/create/">Create new account</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Product Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>                            
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let account of accounts">
+                            <td>{{account.id}}</td>
+                            <td>{{account.name}}</td>
+                            <td>{{account.description}}</td>
+                            <td>{{account.quantity}}</td>
+                            <td>
+                                <button type="button" [routerLink]="['/accounts/update/', account.id]">Update</button>
+                                <button type="button" (click)="accountsService.delete(account.id)">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+-->
