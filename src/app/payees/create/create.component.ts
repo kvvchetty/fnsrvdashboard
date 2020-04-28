@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PayeesService } from '../payees.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule  } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,10 +15,10 @@ export class CreateComponent implements OnInit {
     private router: Router,
     public payeesService: PayeesService){ }
 
-  payeeForm: FormGroup;
+  addForm: FormGroup;
 
   ngOnInit() {
-      this.payeeForm = this.fb.group({
+      this.addForm = this.fb.group({
       name: [''],
       description: [''],
       price: [''],
@@ -27,8 +27,8 @@ export class CreateComponent implements OnInit {
   }
 
   submitForm() {
-    this.payeesService.create(this.payeeForm.value).subscribe(res => {
-      console.log('Product created!');
+    this.payeesService.create(this.addForm.value).subscribe(res => {
+      console.log('Payee created!');
       this.router.navigateByUrl('/payees/home/'); 
       }  )
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountsService } from '../accounts.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule  } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,10 +16,10 @@ export class CreateComponent implements OnInit {
     private router: Router,
     public accountsService: AccountsService){ }
 
-  accountForm: FormGroup;
+  addForm: FormGroup;
 
   ngOnInit() {
-      this.accountForm = this.fb.group({
+      this.addForm = this.fb.group({
       name: [''],
       description: [''],
       price: [''],
@@ -28,7 +28,7 @@ export class CreateComponent implements OnInit {
   }
 
   submitForm() {
-    this.accountsService.create(this.accountForm.value).subscribe(res => {
+    this.accountsService.create(this.addForm.value).subscribe(res => {
       console.log('Account created!');
       this.router.navigateByUrl('/accounts/home/'); 
       }  )
