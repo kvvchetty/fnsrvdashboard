@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PayeesRoutingModule } from './payees-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +13,8 @@ import { UpdateComponent } from './update/update.component';
   declarations: [HomeComponent, DetailsComponent, CreateComponent, UpdateComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     PayeesRoutingModule
   ]
 })
