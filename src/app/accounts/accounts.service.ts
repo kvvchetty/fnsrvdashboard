@@ -20,8 +20,8 @@ export class AccountsService {
   }
   constructor(private httpClient: HttpClient) { }
 
-  create(product): Observable<Account> {
-    return this.httpClient.post<Account>(this.apiServer + '/accounts/', JSON.stringify(product), this.httpOptions)
+  create(account): Observable<Account> {
+    return this.httpClient.post<Account>(this.apiServer + '/accounts/', JSON.stringify(account), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -40,8 +40,8 @@ export class AccountsService {
     )
   }
 
-  update(id, product): Observable<Account> {
-    return this.httpClient.put<Account>(this.apiServer + '/accounts/' + id, JSON.stringify(product), this.httpOptions)
+  update(id, account): Observable<Account> {
+    return this.httpClient.put<Account>(this.apiServer + '/accounts/' + id, JSON.stringify(account), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )

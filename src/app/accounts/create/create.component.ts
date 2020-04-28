@@ -10,6 +10,12 @@ import { Router } from '@angular/router';
 })
 
 export class CreateComponent implements OnInit {
+
+  constructor(
+    public fb: FormBuilder,
+    private router: Router,
+    public accountsService: AccountsService){ }
+
   accountForm: FormGroup;
 
   ngOnInit() {
@@ -21,14 +27,9 @@ export class CreateComponent implements OnInit {
     })
   }
 
-  constructor(
-    public fb: FormBuilder,
-    private router: Router,
-    public accountsService: AccountsService){ }
-
   submitForm() {
     this.accountsService.create(this.accountForm.value).subscribe(res => {
-      console.log('Product created!');
+      console.log('Account created!');
       this.router.navigateByUrl('/accounts/home/'); 
       }  )
   }

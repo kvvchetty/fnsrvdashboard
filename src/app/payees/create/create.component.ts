@@ -10,6 +10,11 @@ import { Router } from '@angular/router';
 })
 
 export class CreateComponent implements OnInit {
+  constructor(
+    public fb: FormBuilder,
+    private router: Router,
+    public payeesService: PayeesService){ }
+
   payeeForm: FormGroup;
 
   ngOnInit() {
@@ -20,11 +25,6 @@ export class CreateComponent implements OnInit {
       quantity: [''],    
     })
   }
-
-  constructor(
-    public fb: FormBuilder,
-    private router: Router,
-    public payeesService: PayeesService){ }
 
   submitForm() {
     this.payeesService.create(this.payeeForm.value).subscribe(res => {
